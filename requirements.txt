@@ -1,2 +1,5 @@
 colorama
 requests
+uvicorn
+fastapi
+requests
