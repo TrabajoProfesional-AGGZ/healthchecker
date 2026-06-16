@@ -4,3 +4,4 @@ uvicorn
 fastapi
 pytest
 pytest-cov
+httpx2
