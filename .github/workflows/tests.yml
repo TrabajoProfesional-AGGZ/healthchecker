@@ -24,3 +24,5 @@ jobs:
 
       - name: Ejecutar tests con coverage (mínimo 90%)
         run: pytest tests/ -v --cov=healthcheck --cov-report=term-missing --cov-fail-under=90
+        env:
+          PYTHONPATH: .
