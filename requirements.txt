@@ -2,4 +2,6 @@ colorama
 requests
 uvicorn
 fastapi
-requests
+pytest
+pytest-cov
+httpx2

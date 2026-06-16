@@ -19,6 +19,7 @@ MAX_LOGS = 50  # Guardamos los últimos 50 pings para no saturar la memoria RAM
 endpoints = [
     {"name": "Gateway", "url": "https://sociounido-gateway.onrender.com/__health"},
     {"name": "MS Club", "url": "https://microservicio-club.onrender.com/health"},
+    {"name": "MS Auth", "url": "https://microservicio-autenticacion-sdy6.onrender.com/api/v1/auth/health"},
 ]
 
 colors = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN]
