@@ -58,7 +58,7 @@ def test_dashboard_con_logs(client):
 def test_dashboard_html_tiene_titulo(client):
     response = client.get("/")
     assert "SocioUnido" in response.text
-    assert "Keep-Alive" in response.text
+    assert "Monitor Dinámico" in response.text
 
 
 # ─── ping_loop ───
