@@ -20,6 +20,7 @@ endpoints = [
     {"name": "Gateway", "url": "https://sociounido-gateway.onrender.com/__health"},
     {"name": "MS Club", "url": "https://microservicio-club.onrender.com/api/v1/socios/health"},
     {"name": "MS Auth", "url": "https://microservicio-autenticacion-sdy6.onrender.com/api/v1/auth/health"},
+    {"name": "MS Analiticas", "url": "https://microservicio-analiticas.onrender.com/api/v1/metricas/health"},
     {"name": "Web Admin", "url": "https://sociounido-web.vercel.app/"},
 ]
 
