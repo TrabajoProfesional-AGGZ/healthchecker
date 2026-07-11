@@ -22,6 +22,7 @@ endpoints = [
     {"name": "MS Auth", "url": "https://microservicio-autenticacion-sdy6.onrender.com/api/v1/auth/health"},
     {"name": "MS Analiticas", "url": "https://microservicio-analiticas.onrender.com/api/v1/metricas/health"},
     {"name": "Web Admin", "url": "https://sociounido-web.vercel.app/"},
+    {"name": "MS Pagos", "url": "https://microservicio-pagos-iump.onrender.com/api/v1/pagos/health"}
 ]
 
 colors = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN]
