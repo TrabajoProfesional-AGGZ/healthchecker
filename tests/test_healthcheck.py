@@ -24,14 +24,15 @@ def client():
 # ─── Dashboard ───
 
 def test_dashboard_sin_logs(client):
-    """Cuando no hay logs, muestra el mensaje de espera."""
+    """Cuando no hay logs, muestra el mensaje de estado vacío (empty state)."""
     response = client.get("/")
     assert response.status_code == 200
-    assert "Esperando el primer ciclo" in response.text
+    assert "Aguardando telemetría" in response.text
+    assert "empty-state" in response.text
 
 
 def test_dashboard_con_logs(client):
-    """Cuando hay logs, los muestra en la tabla."""
+    """Cuando hay logs, los muestra en la grilla con sus respectivas clases de estado."""
     LOGS_HISTORY.append({
         "time": "2026-06-15 10:00:00",
         "name": "Gateway",
@@ -49,16 +50,24 @@ def test_dashboard_con_logs(client):
 
     response = client.get("/")
     assert response.status_code == 200
+    
+    # Verifica los datos insertados
     assert "Gateway" in response.text
     assert "MS Club" in response.text
     assert "OK" in response.text
     assert "ERROR (502)" in response.text
+    
+    # Verifica que el motor de plantillas inyectó las clases CSS correctas
+    assert "status-ok" in response.text
+    assert "status-error" in response.text
+    assert "service-card" in response.text
 
 
 def test_dashboard_html_tiene_titulo(client):
+    """Verifica que los títulos y encabezados modernos estén presentes."""
     response = client.get("/")
     assert "SocioUnido" in response.text
-    assert "Monitor Dinámico" in response.text
+    assert "Status Overview" in response.text
 
 
 # ─── ping_loop ───
