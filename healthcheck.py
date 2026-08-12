@@ -14,7 +14,7 @@ app = FastAPI(title="Keep-Alive Pinger")
 
 # --- CONFIGURACIÓN DEL HISTORIAL ---
 LOGS_HISTORY = []
-MAX_LOGS = 18
+MAX_LOGS = 20
 
 endpoints = [
     {"name": "Gateway", "url": "https://sociounido-gateway.onrender.com/__health"},
@@ -22,6 +22,7 @@ endpoints = [
     {"name": "MS Auth", "url": "https://microservicio-autenticacion-sdy6.onrender.com/api/v1/auth/health"},
     {"name": "MS Analiticas", "url": "https://microservicio-analiticas.onrender.com/api/v1/metricas/health"},
     {"name": "MS Pagos", "url": "https://microservicio-pagos-iump.onrender.com/api/v1/pagos/health"},
+    {"name": "MS Bot", "url": "https://microservicio-bot-conversacional.onrender.com/health"},
     {"name": "MS Acceso", "url": "https://microservicio-acceso.onrender.com/api/v1/accesos/health"},
     {"name": "App SocioUnido", "url": "https://sociounido-app.vercel.app/"},
     {"name": "App Empleados", "url": "https://sociounido-empleados.vercel.app/"},
