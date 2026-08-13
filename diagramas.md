@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Arquitectura y diagramas
+title: Arquitectura, diagramas e interfaz
 nav_order: 4
 ---
 
-# 🏗️ Arquitectura y diagramas
+# 🏗️ Arquitectura, diagramas e interfaz
 
 A continuación se presentan los diagramas de arquitectura basados en el modelo C4 para entender la estructura, dependencias y el flujo de información de esta implementación en particular.
 

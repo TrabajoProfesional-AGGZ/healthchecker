@@ -23,5 +23,5 @@ A continuación, se detalla toda la información técnica, arquitectónica y org
 
 * 🔌 **[Endpoints](endpoints/):** Documentación estática y detallada de la API, ideal para consultar integraciones.
 * 🛠️ **[Justificación tecnológica](justificacion/):** El porqué de los lenguajes y frameworks elegidos, nuestro pipeline de CI/CD, la estrategia de testing y métricas de Code Coverage definidas.
-* 🏗️ **[Arquitectura y diagramas](diagramas/):** Representación visual de la arquitectura del healthchecker utilizando los modelos C3 y C4.
+* 🏗️ **[Arquitectura, diagramas e interfaz](diagramas/):** Representación visual de la arquitectura del healthchecker utilizando los modelos C3/C4 e ilustraciones de su interfaz funcional.
 * 📊 **[Métricas de la implementación](metricas/):** Estadísticas del desarrollo, cantidad de commits, Pull Requests y distribución del trabajo en el equipo.
