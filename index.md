@@ -5,8 +5,23 @@ nav_order: 1
 description: "Documentacion del healthchecker de SocioUnido"
 ---
 
-# 🔨 En proceso
+# HealthChecker
 
-Actualmente, este repositorio se encuentra en proceso de inicialización. 
+HealthChecker de los microservicios, gateway y plataforma web de "SocioUnido".
 
-Una vez que la estructura principal y el código base estén implementados, toda la documentación se detallará en esta misma página.
+## Utilidad y funcionalidad
+
+El healthchecker está diseñado para manejar las siguientes responsabilidades clave:
+
+* **Responsabilidad 1:** [Breve descripción, ej: Procesamiento de pagos, gestión de usuarios, etc.]
+* **Responsabilidad 2:** [Breve descripción]
+* **Responsabilidad 3:** [Breve descripción]
+
+## ¿Qué vas a encontrar en esta página?
+
+A continuación, se detalla toda la información técnica, arquitectónica y organizativa sobre esta implementación en particular:
+
+* 🔌 **[Endpoints](endpoints/):** Documentación estática y detallada de la API, ideal para consultar integraciones.
+* 🛠️ **[Justificación tecnológica](justificacion/):** El porqué de los lenguajes y frameworks elegidos, nuestro pipeline de CI/CD, la estrategia de testing y métricas de Code Coverage definidas.
+* 🏗️ **[Arquitectura y diagramas](diagramas/):** Representación visual de la arquitectura del healthchecker utilizando los modelos C3 y C4.
+* 📊 **[Métricas de la implementación](metricas/):** Estadísticas del desarrollo, cantidad de commits, Pull Requests y distribución del trabajo en el equipo.
