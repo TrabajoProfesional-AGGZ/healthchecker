@@ -30,7 +30,7 @@ A continuación se detalla la participación de cada miembro del equipo basándo
 | Miembro del equipo (GitHub User) | Commits Totales | Líneas Agregadas (++) | Líneas Eliminadas (--) |
 | :--- | :---: | :---: | :---: | :--- |
 | **Ghosn, Lautaro Gabriel (`LGhosn`)** | 11 | 576 | 147 |
-| **Ascencio, Felipe Santino (`FelipeAscencio`)** | 9 | 440 | 62 |
+| **Ascencio, Felipe Santino (`FelipeAscencio`)** | 11 | 505 | 84 |
 | **Guerrero, Martín (`marttinguerrero`)** | 3 | 181 | 2 |
 
 *(Nota: Cualquier diferencia entre el total de commits del repositorio y la suma de los aportes individuales corresponde a operaciones de mantenimiento automatizado realizadas por herramientas como `dependabot`).*
