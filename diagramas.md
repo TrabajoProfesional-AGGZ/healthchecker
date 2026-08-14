@@ -10,11 +10,11 @@ A continuación se presentan los diagramas de arquitectura basados en el modelo 
 
 ## Diagrama de contenedores (Nivel 3 - C3)
 
-![Diagrama de contenedores C3](img/example-c3.png)
+![Diagrama de contenedores C3](img/c3.png)
 
 ## Diagrama de componentes (Nivel 4 - C4)
 
-![Diagrama de componentes C4](img/example-c4.png)
+![Diagrama de componentes C4](img/c4.png)
 
 ## Interfaz de monitoreo
 
