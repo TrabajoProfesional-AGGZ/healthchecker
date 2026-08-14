@@ -6,12 +6,16 @@ nav_order: 4
 
 # 🏗️ Arquitectura, diagramas e interfaz
 
-A continuación se presentan los diagramas de arquitectura basados en el modelo C4 para entender la estructura, dependencias y el flujo de información de esta implementación en particular.
+A continuación se presentan los diagramas de arquitectura basados en el modelo C4 para entender la estructura, dependencias y el flujo de información de esta implementación en particular. Además de la interfaz de monitoreo de los microservicios, gateway y plataforma web.
 
 ## Diagrama de contenedores (Nivel 3 - C3)
 
-X.
+![Diagrama de contenedores C3](img/example-c3.png)
 
 ## Diagrama de componentes (Nivel 4 - C4)
 
-X.
+![Diagrama de componentes C4](img/example-c4.png)
+
+## Interfaz de monitoreo
+
+![Interfaz del HealthChecker](img/healthchecker.png)

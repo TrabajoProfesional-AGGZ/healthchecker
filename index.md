@@ -13,9 +13,9 @@ HealthChecker de los microservicios, gateway y plataforma web de "SocioUnido".
 
 El healthchecker está diseñado para manejar las siguientes responsabilidades clave:
 
-* **Responsabilidad 1:** [Breve descripción, ej: Procesamiento de pagos, gestión de usuarios, etc.]
-* **Responsabilidad 2:** [Breve descripción]
-* **Responsabilidad 3:** [Breve descripción]
+* **Monitoreo continuo del ecosistema:** Verifica constantemente la disponibilidad y el estado de salud de todos los microservicios, el gateway y la plataforma web, asegurando el correcto funcionamiento global del sistema.
+* **Interfaz de seguimiento en tiempo real:** Provee un panel visual que permite a los administradores observar el estado y rendimiento de los servicios de manera centralizada, facilitando la detección temprana de anomalías.
+* **Auditoría central de transacciones (Modelo de Negocio):** Actúa como el punto central de seguimiento de las operaciones y transacciones realizadas en la plataforma. Esta funcionalidad es de vital importancia a nivel comercial, ya que brinda los datos y porcentajes exactos necesarios para calcular y auditar las comisiones o cobros por cada servicio brindado.
 
 ## ¿Qué vas a encontrar en esta página?
 
