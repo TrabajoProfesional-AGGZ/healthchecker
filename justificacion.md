@@ -8,7 +8,7 @@ nav_order: 3
 
 En esta sección documentamos las decisiones técnicas tomadas para la construcción del healthchecker, asegurando que cada herramienta elegida aporte valor real al desarrollo y mantenimiento del producto.
 
-## Lenguajes y Frameworks
+## Lenguajes y frameworks
 
 Para este microservicio, la selección de nuestra pila tecnológica se basó en la agilidad, la escalabilidad y la facilidad de mantenimiento continuo:
 
@@ -17,7 +17,7 @@ Para este microservicio, la selección de nuestra pila tecnológica se basó en 
 * **Pytest:** Adoptado como nuestro framework de pruebas. Su ecosistema, simplicidad y uso de *fixtures* nos permite escribir tests escalables y legibles, asegurando que el motor de auditoría y monitoreo no tenga falsos positivos ni caídas silenciosas.
 * **Docker y Docker Compose:** La contenerización es indispensable en nuestra arquitectura. Nos permite aislar el healthchecker y garantizar la paridad entre entornos (desarrollo, *staging* y producción).
 
-## Integración y Despliegue Continuo (CI/CD)
+## Integración y despliegue continuo (CI/CD)
 
 La implementación de pipelines de CI/CD es fundamental en el healthchecker para garantizar entregas ágiles y seguras. Nos permite automatizar la ejecución de pruebas y el despliegue a los distintos entornos, reduciendo el error humano y acelerando el *time-to-market*.
 
