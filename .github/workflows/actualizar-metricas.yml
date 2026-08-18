@@ -1,0 +1,43 @@
+name: Exportar Métricas a Docs Públicas
+
+on:
+  push:
+    branches: [ "main" ] 
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repo privado
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias de Python
+        run: pip install requests
+
+      - name: Generar archivo de métricas
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_MIGRACION }}
+        run: python scripts/generar_metricas.py
+
+      - name: Descargar repo público (Docs)
+        uses: actions/checkout@v3
+        with:
+          repository: trabajoprofesional-aggz/healthchecker-doc
+          token: ${{ secrets.PAT_MIGRACION }}
+          path: docs-repo
+
+      - name: Copiar métricas y pushear
+        run: |
+          cp metricas_generadas.md docs-repo/metricas.md 
+          cd docs-repo
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Actualización automática de métricas desde repo privado"
+          git push
