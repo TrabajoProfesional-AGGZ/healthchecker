@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar repo privado
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -26,7 +26,7 @@ jobs:
         run: python scripts/generar_metricas.py
 
       - name: Descargar repo público (Docs)
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
         with:
           repository: trabajoprofesional-aggz/healthchecker-doc
           token: ${{ secrets.PAT_MIGRACION }}
