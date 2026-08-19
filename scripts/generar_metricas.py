@@ -31,7 +31,7 @@ commits_url = f'https://api.github.com/repos/{repo_privado}/commits?per_page=100
 conteo_autores = {}
 total_commits_repo = 0
 
-# Diccionario para formatear los nombres de Felipe y el equipo
+# Diccionario para formatear los nombres del equipo
 nombres_equipo = {
     "LGhosn": "Ghosn, Lautaro Gabriel",
     "axel-zielonka": "Zielonka, Axel",
@@ -39,7 +39,7 @@ nombres_equipo = {
     "marttinguerrero": "Guerrero, Martín"
 }
 
-print(f"🔍 [LOG] Iniciando conteo crudo de commits y líneas...")
+print(f"🔍 [LOG] Iniciando conteo crudo de commits y líneas sin merges...")
 
 while commits_url:
     resp_commits = requests.get(commits_url, headers=headers)
@@ -52,8 +52,11 @@ while commits_url:
         break
         
     for commit in commits_page:
-        total_commits_repo += 1
         
+        # 1. FILTRO DE MERGES: Ignorar commits con más de 1 padre
+        if len(commit.get('parents', [])) > 1:
+            continue
+            
         # Identificar al autor
         author = None
         if commit.get('author'):
@@ -61,17 +64,23 @@ while commits_url:
         else:
             author = commit.get('commit', {}).get('author', {}).get('name', '')
             
-        # OMITIR a dependabot y cualquier otro bot
-        if not author or 'bot' in author.lower() or 'dependabot' in author.lower():
+        # 2. FILTRO DE BOTS: Omitir si no hay autor, si es un bot o un action
+        if not author:
             continue
             
+        author_lower = author.lower()
+        if 'bot' in author_lower or 'action' in author_lower:
+            continue
+            
+        # Si pasa los filtros, lo sumamos al total real del equipo
+        total_commits_repo += 1    
         sha = commit['sha']
         
         # Inicializar al usuario si es su primer commit analizado
         if author not in conteo_autores:
             conteo_autores[author] = {'commits': 0, 'additions': 0, 'deletions': 0}
             
-        # Hacemos una petición extra para ver cuántas líneas tocó en este commit
+        # Hacemos una petición extra para ver cuántas líneas tocó en este commit individual
         resp_detalle = requests.get(f'https://api.github.com/repos/{repo_privado}/commits/{sha}', headers=headers)
         if resp_detalle.status_code == 200:
             stats = resp_detalle.json().get('stats', {'additions': 0, 'deletions': 0})
@@ -89,7 +98,7 @@ while commits_url:
                 commits_url = link[link.find('<')+1 : link.find('>')]
                 break
 
-print(f"✅ [LOG] Total de commits del repositorio: {total_commits_repo}")
+print(f"✅ [LOG] Total de commits de los integrantes: {total_commits_repo}")
 
 # Armar la tabla de contribuidores ordenados
 contrib_md = ""
