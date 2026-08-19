@@ -17,13 +17,13 @@ LOGS_HISTORY = []
 MAX_LOGS = 20
 
 endpoints = [
-    {"name": "Gateway", "url": "https://sociounido-gateway.onrender.com/__health"},
-    {"name": "MS Club", "url": "https://microservicio-club.onrender.com/api/v1/socios/health"},
+    {"name": "Gateway", "url": "https://gateway-jd61.onrender.com/__health"},
+    {"name": "MS Club", "url": "https://microservicio-club-pm6o.onrender.com/api/v1/socios/health"},
     {"name": "MS Auth", "url": "https://microservicio-autenticacion-sdy6.onrender.com/api/v1/auth/health"},
-    {"name": "MS Analiticas", "url": "https://microservicio-analiticas.onrender.com/api/v1/metricas/health"},
-    {"name": "MS Pagos", "url": "https://microservicio-pagos-iump.onrender.com/api/v1/pagos/health"},
+    {"name": "MS Analiticas", "url": "https://microservicio-analiticas-ngys.onrender.com/api/v1/metricas/health"},
+    {"name": "MS Pagos", "url": "https://microservicio-pagos-0cc3.onrender.com/api/v1/pagos/health"},
     {"name": "MS Bot", "url": "https://microservicio-bot-conversacional.onrender.com/health"},
-    {"name": "MS Acceso", "url": "https://microservicio-acceso.onrender.com/api/v1/accesos/health"},
+    {"name": "MS Acceso", "url": "https://microservicio-acceso-ko73.onrender.com/api/v1/accesos/health"},
     {"name": "App SocioUnido", "url": "https://sociounido-app.vercel.app/"},
     {"name": "App Empleados", "url": "https://sociounido-empleados.vercel.app/"},
     {"name": "Web Admin", "url": "https://sociounido-web.vercel.app/"}
