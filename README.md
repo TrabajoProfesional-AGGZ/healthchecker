@@ -2,7 +2,7 @@
 
 HealthChecker de los microservicios, gateway y plataforma web de "SocioUnido".
 
-📖 **[Ver la documentación online](https://trabajoprofesional-aggz.github.io/healthchecker/)**
+📖 **[Ver la documentación online](https://trabajoprofesional-aggz.github.io/healthchecker-doc/)**
 
 ## Licencia ⚖️
 
