@@ -21,8 +21,8 @@ LOGS_HISTORY = []
 MAX_LOGS = 30
 
 endpoints = [
-    {"name": "Gateway", "url": "https://sociounido-gateway.onrender.com/__health", "type": "Microservicio"},
-    {"name": "MS Club", "url": "https://microservicio-club.onrender.com/health", "type": "Microservicio"},
+    {"name": "Gateway", "url": "https://gateway-jd61.onrender.com/__health", "type": "Microservicio"},
+    {"name": "MS Club", "url": "https://microservicio-club-pm6o.onrender.com/health", "type": "Microservicio"},
     {"name": "MS Auth", "url": "https://microservicio-autenticacion-sdy6.onrender.com/api/v1/auth/health", "type": "Microservicio"},
     {"name": "MS Analiticas", "url": "https://microservicio-analiticas-ngys.onrender.com/api/v1/metricas/health", "type": "Microservicio"},
     {"name": "MS Pagos", "url": "https://microservicio-pagos-0cc3.onrender.com/api/v1/pagos/health", "type": "Microservicio"},

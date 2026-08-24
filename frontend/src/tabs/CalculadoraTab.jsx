@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Calculator } from 'lucide-react';
 
 export default function CalculadoraTab() {
   const [ingresos, setIngresos] = useState({ fijo: 150000, varTx: 20, volumen: 45000, clubes: 1 });
@@ -17,48 +18,69 @@ export default function CalculadoraTab() {
 
   return (
     <div>
-      <h2 className="section-title">Calculadora de Costos y ROI</h2>
+      <section className="control-banner">
+        <div className="control-banner-texture" aria-hidden="true" />
+        <div className="control-banner-content">
+          <span className="control-banner-eyebrow"><Calculator size={14} /> HERRAMIENTA INTERNA</span>
+          <h2 className="control-banner-title">Calculadora de Costos y ROI</h2>
+        </div>
+      </section>
+
       <div className="calc-wrapper">
         
         {/* Panel de Ingresos */}
-        <div className="table-container" style={{padding: '2rem'}}>
-          <h3 style={{color: 'var(--brand-color)', marginBottom: '1.5rem'}}>Métricas de Ingresos</h3>
-          <label>Suscripción Fija Mensual ($)</label>
-          <input type="number" value={ingresos.fijo} onChange={e => handleIngreso('fijo', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
+        <div className="control-card">
+          <h3 style={{color: 'var(--brand-color)', marginBottom: '1.5rem', marginTop: 0}}>Métricas de Ingresos</h3>
           
-          <label>Comisión por Tx ($)</label>
-          <input type="number" value={ingresos.varTx} onChange={e => handleIngreso('varTx', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
+          <label className="input-label">Suscripción Fija Mensual ($)</label>
+          <input type="number" className="su-input" value={ingresos.fijo} onChange={e => handleIngreso('fijo', e.target.value)} />
           
-          <label>Volumen de Tx Estimado</label>
-          <input type="number" value={ingresos.volumen} onChange={e => handleIngreso('volumen', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
+          <label className="input-label">Comisión por Tx ($)</label>
+          <input type="number" className="su-input" value={ingresos.varTx} onChange={e => handleIngreso('varTx', e.target.value)} />
           
-          <label>Cantidad de Clubes</label>
-          <input type="number" value={ingresos.clubes} onChange={e => handleIngreso('clubes', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
+          <label className="input-label">Volumen de Tx Estimado</label>
+          <input type="number" className="su-input" value={ingresos.volumen} onChange={e => handleIngreso('volumen', e.target.value)} />
+          
+          <label className="input-label">Cantidad de Clubes</label>
+          <input type="number" className="su-input" value={ingresos.clubes} onChange={e => handleIngreso('clubes', e.target.value)} />
         </div>
 
         {/* Panel de Costos */}
-        <div className="table-container" style={{padding: '2rem'}}>
-            <h3 style={{color: 'var(--color-error)', marginBottom: '1.5rem'}}>Costos de Infraestructura</h3>
-            <label>Servidores y API Gateway ($)</label>
-            <input type="number" value={costos.servers} onChange={e => handleCosto('servers', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
-            
-            <label>Hosting Bases de Datos y Redis ($)</label>
-            <input type="number" value={costos.db} onChange={e => handleCosto('db', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
-            <label>Costos de Mantenimiento y Soporte ($)</label>
-            <input type="number" value={costos.maint} onChange={e => handleCosto('maint', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
-            <label>Misceláneos (APIs externas, dominios) ($)</label>
-            <input type="number" value={costos.misc} onChange={e => handleCosto('misc', e.target.value)} style={{width: '100%', marginBottom: '1rem', padding: '0.5rem', background: '#000', color: '#fff', border: '1px solid #333'}} />
+        <div className="control-card">
+          <h3 style={{color: 'var(--color-error)', marginBottom: '1.5rem', marginTop: 0}}>Costos de Infraestructura</h3>
+          
+          <label className="input-label">Servidores y API Gateway ($)</label>
+          <input type="number" className="su-input" value={costos.servers} onChange={e => handleCosto('servers', e.target.value)} />
+          
+          <label className="input-label">Hosting Bases de Datos y Redis ($)</label>
+          <input type="number" className="su-input" value={costos.db} onChange={e => handleCosto('db', e.target.value)} />
+          
+          <label className="input-label">Mantenimiento y Soporte ($)</label>
+          <input type="number" className="su-input" value={costos.maint} onChange={e => handleCosto('maint', e.target.value)} />
+          
+          <label className="input-label">Misceláneos (APIs, dominios) ($)</label>
+          <input type="number" className="su-input" value={costos.misc} onChange={e => handleCosto('misc', e.target.value)} />
         </div>
 
         {/* Resultados */}
-        <div className="table-container" style={{gridColumn: 'span 2', padding: '2rem', border: '1px solid var(--brand-color)'}}>
-          <h3>Proyección Financiera</h3>
-          <p>Costos: <span className="text-red">{formatMoney(totalCostos)}</span></p>
-          <p>Ingresos Brutos: <span style={{color: 'var(--brand-color)'}}>{formatMoney(totalIngresos)}</span></p>
-          <h2 style={{marginTop: '1rem'}}>
-            Ganancia Neta: <span className={gananciaNeta >= 0 ? 'text-green' : 'text-red'}>{formatMoney(gananciaNeta)}</span>
-          </h2>
-          <p>ROI: <span className={roi >= 0 ? 'text-green' : 'text-red'}>{roi.toFixed(2)}%</span></p>
+        <div className="control-card" style={{gridColumn: '1 / -1', border: '1px solid var(--brand-color)'}}>
+          <h3 style={{marginTop: 0}}>Proyección Financiera</h3>
+          <div style={{display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--color-border)', padding: '1rem 0'}}>
+            <span>Costos Operativos:</span>
+            <span className="text-red">{formatMoney(totalCostos)}</span>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--color-border)', padding: '1rem 0'}}>
+            <span>Ingresos Brutos:</span>
+            <span style={{color: 'var(--brand-color)', fontWeight: 600}}>{formatMoney(totalIngresos)}</span>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'space-between', padding: '1rem 0', fontSize: '1.2rem', fontWeight: 'bold'}}>
+            <span>Ganancia Neta:</span>
+            <span className={gananciaNeta >= 0 ? 'text-green' : 'text-red'}>{formatMoney(gananciaNeta)}</span>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0'}}>
+            <span style={{color: 'var(--text-secondary)'}}>Retorno de Inversión (ROI):</span>
+            <span className={roi >= 0 ? 'text-green' : 'text-red'}>{roi.toFixed(2)}%</span>
+          </div>
         </div>
 
       </div>
