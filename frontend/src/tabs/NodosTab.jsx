@@ -38,6 +38,9 @@ export default function NodosTab() {
           <span className="control-banner-eyebrow"><Activity size={14} /> PINGER DE SERVICIOS</span>
           <h2 className="control-banner-title">Salud de Infraestructura</h2>
           <p style={{color: 'rgba(255,255,255,0.7)', margin: '10px 0 0', fontSize: '0.9rem'}}>Último escaneo: {data.time}</p>
+          <button onClick={() => window.location.reload()} style={{marginTop: '10px', padding: '6px 12px', backgroundColor: 'var(--brand-color)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer'}}>
+            Refrescar
+          </button>
         </div>
       </section>
 
