@@ -8,7 +8,7 @@ export default function NodosTab() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/status');
+        const res = await fetch('https://healthchecker-i01r.onrender.com/api/status');
         const json = await res.json();
         if (json.status === 'ok') setData(json.data);
       } catch (error) {
