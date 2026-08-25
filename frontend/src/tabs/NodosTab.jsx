@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Activity, ExternalLink } from 'lucide-react';
 
+const URL_HEALTHCHECKER=import.meta.env.VITE_HEALTH_BASE_URL;
+
 export default function NodosTab() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -8,7 +10,7 @@ export default function NodosTab() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://healthchecker-i01r.onrender.com/api/status');
+        const res = await fetch(`${URL_HEALTHCHECKER}/api/status`);
         const json = await res.json();
         if (json.status === 'ok') setData(json.data);
       } catch (error) {
