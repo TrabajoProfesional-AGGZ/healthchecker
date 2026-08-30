@@ -7,6 +7,8 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+"""API para la recolección y exposición de la telemetría del sistema."""
+
 app = FastAPI(title="SocioUnido Control Plane API")
 
 app.add_middleware(
@@ -40,6 +42,7 @@ endpoints = [
 ]
 
 def ping_loop():
+    """Ejecuta un ciclo infinito de consultas periódicas para validar la salud de los endpoints."""
     while True:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
@@ -74,11 +77,12 @@ def ping_loop():
 
 @app.on_event("startup")
 def start_background_pinger():
+    """Inicia el demonio de monitoreo continuo en segundo plano al arrancar la aplicación."""
     threading.Thread(target=ping_loop, daemon=True).start()
 
 @app.get("/api/status")
 def get_status():
-    """Devuelve los logs del último escaneo."""
+    """Devuelve los resultados de salud obtenidos durante el último escaneo."""
     if not LOGS_HISTORY:
         return {"status": "loading", "data": None}
     return {"status": "ok", "data": LOGS_HISTORY[0]}
