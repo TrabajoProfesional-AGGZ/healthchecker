@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { DollarSign } from 'lucide-react';
 
+/**
+ * Componente que muestra una tabla de métricas y proyección de facturación global
+ * de los clubes clientes actuales.
+ *
+ * @returns {JSX.Element}
+ */
 export default function FacturacionTab() {
   const [clubes, setClubes] = useState([
     { id: 1, nombre: 'Club Atlético Talleres (RE)', socios: 2450, transacciones: 18200, cuotaFija: 80000, comisionVariable: 364000 },

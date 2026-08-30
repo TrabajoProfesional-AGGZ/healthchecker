@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Activity, ExternalLink } from 'lucide-react';
 
-const URL_HEALTHCHECKER=import.meta.env.VITE_HEALTH_BASE_URL;
+const URL_HEALTHCHECKER = import.meta.env.VITE_HEALTH_BASE_URL;
 
+/**
+ * Componente que monitorea el estado de salud de la infraestructura (pinger),
+ * mostrando el estado actual de las bases de datos, microservicios y frontends.
+ *
+ * @returns {JSX.Element}
+ */
 export default function NodosTab() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,6 +25,7 @@ export default function NodosTab() {
         setLoading(false);
       }
     };
+    
     fetchData();
     const interval = setInterval(fetchData, 20000);
     return () => clearInterval(interval);

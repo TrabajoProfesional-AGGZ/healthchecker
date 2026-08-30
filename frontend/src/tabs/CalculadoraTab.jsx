@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { Calculator, Settings2, BarChart3 } from 'lucide-react';
 
+/**
+ * Componente para calcular proyecciones financieras, costos operativos y ROI
+ * basados en diferentes escenarios (tiers) de volumen de clubes.
+ *
+ * @returns {JSX.Element}
+ */
 export default function CalculadoraTab() {
-  // Configuración global que aplica a todos los Tiers
   const [globalConfig, setGlobalConfig] = useState({
     activeTierId: 1,
     dolar: 1500,
@@ -13,7 +18,6 @@ export default function CalculadoraTab() {
     dominioCentral: 0.47
   });
 
-  // Tiers extraídos exactamente de tu archivo Excel
   const [tiers, setTiers] = useState([
     { id: 1, nombre: 'Tier 1 (< 10k socios)', clubes: 3, renderCuenta: 25, renderServicios: 56, db: 19, cloudinary: 0, vercel: 80, dominios: 10.5, firebase: 0, extras: 0 },
     { id: 2, nombre: 'Tier 2 (10k - 20k socios)', clubes: 6, renderCuenta: 25, renderServicios: 74, db: 19, cloudinary: 0, vercel: 80, dominios: 10.5, firebase: 0, extras: 0 },
@@ -34,7 +38,6 @@ export default function CalculadoraTab() {
   const formatUsd = (num) => 'USD ' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const formatArs = (num) => 'ARS ' + num.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-  // === CÁLCULOS (Usando el Tier Activo) ===
   const costoTotalUsd = activeTier.renderCuenta + activeTier.renderServicios + activeTier.db + 
                         activeTier.cloudinary + activeTier.vercel + activeTier.dominios + 
                         activeTier.firebase + activeTier.extras + 
@@ -43,16 +46,13 @@ export default function CalculadoraTab() {
   const ingresosMensualesUsd = globalConfig.cuotaClubUsd * activeTier.clubes;
   const gananciaNetaUsd = ingresosMensualesUsd - costoTotalUsd;
 
-  // Conversiones a ARS
   const costoTotalArs = costoTotalUsd * globalConfig.dolar;
   const ingresosMensualesArs = ingresosMensualesUsd * globalConfig.dolar;
   const gananciaNetaArs = gananciaNetaUsd * globalConfig.dolar;
 
-  // Ganancia particionada
   const gananciaPorPersonaUsd = gananciaNetaUsd / (globalConfig.teamSize || 1);
   const gananciaPorPersonaArs = gananciaNetaArs / (globalConfig.teamSize || 1);
 
-  // Break-Even (Meses hasta recuperar la inversión de prueba)
   let mesesBreakEven = "Nunca";
   if (gananciaNetaUsd > 0) {
     const inversionPrueba = costoTotalUsd * globalConfig.mesesPrueba;
@@ -71,8 +71,6 @@ export default function CalculadoraTab() {
       </section>
 
       <div className="calc-wrapper">
-        
-        {/* Panel 1: Configuración Global y Selección de Escenario */}
         <div className="control-card">
           <h3 style={{color: 'var(--brand-color)', marginBottom: '1.5rem', marginTop: 0, display: 'flex', alignItems: 'center', gap: '8px'}}>
             <Settings2 size={18} /> Configuración Global
@@ -122,7 +120,6 @@ export default function CalculadoraTab() {
           </div>
         </div>
 
-        {/* Panel 2: Costos del Tier Seleccionado */}
         <div className="control-card">
           <h3 style={{color: 'var(--color-error)', marginBottom: '1.5rem', marginTop: 0}}>
             Variables del {activeTier.nombre.split(' ')[0] + ' ' + activeTier.nombre.split(' ')[1]}
@@ -173,7 +170,6 @@ export default function CalculadoraTab() {
           </div>
         </div>
 
-        {/* Panel 3: Resultados */}
         <div className="control-card" style={{gridColumn: '1 / -1', border: '1px solid var(--brand-color)'}}>
           <h3 style={{marginTop: 0, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '8px'}}>
             <BarChart3 size={18} color="var(--brand-color)" /> Proyección Financiera ({activeTier.nombre})
