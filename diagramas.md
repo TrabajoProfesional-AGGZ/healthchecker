@@ -20,6 +20,14 @@ A continuación se presentan los diagramas de arquitectura basados en el modelo 
 
 ![Diagrama de Nivel 3 - C3](img/C4-Nivel-3.png)
 
-## Interfaz de monitoreo
+## Interfaz de monitoreo - Ecosistema
 
-![Interfaz del HealthChecker](img/healthchecker.png)
+![Interfaz del HealthChecker](img/healthchecker1.png)
+
+## Interfaz de monitoreo - Facturación
+
+![Interfaz del HealthChecker](img/healthchecker2.png)
+
+## Interfaz de monitoreo - Réditos
+
+![Interfaz del HealthChecker](img/healthchecker3.png)
