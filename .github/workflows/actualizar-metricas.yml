@@ -1,15 +1,18 @@
-name: Exportar Métricas a Docs Públicas
+name: Actualizar Métricas Locales
 
 on:
   push:
-    branches: [ "main" ] 
+    branches: [ "main" ]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar repo privado
+      - name: Descargar repositorio
         uses: actions/checkout@v7
 
       - name: Configurar Python
@@ -22,22 +25,17 @@ jobs:
 
       - name: Generar archivo de métricas
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_MIGRACION }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/generar_metricas.py
 
-      - name: Descargar repo público (Docs)
-        uses: actions/checkout@v7
-        with:
-          repository: trabajoprofesional-aggz/healthchecker-doc
-          token: ${{ secrets.PAT_MIGRACION }}
-          path: docs-repo
-
-      - name: Copiar métricas y pushear
+      - name: Reemplazar archivo y pushear
         run: |
-          cp metricas_generadas.md docs-repo/metricas.md 
-          cd docs-repo
+          mv metricas_generadas.md metricas.md 
+          
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Actualización automática de métricas desde repo privado"
+          
+          git add metricas.md
+          # El cambio está en la línea de abajo, agregando [skip ci] al final del mensaje
+          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Actualización automática de métricas locales [skip ci]"
           git push
