@@ -179,10 +179,14 @@ tr:hover td { background-color: var(--color-surface-hover); }
 .service-card--success { border-left-color: var(--status-success-border); }
 .service-card--danger { border-left-color: var(--status-danger-border); }
 .service-card--warning { border-left-color: var(--status-warning-border); }
+/* Un club que todavia no atiende trafico no se sondea: no es una caida y no puede verse como
+   una. Sin este estado neutro, un alta a medio terminar se confunde con una base caida. */
+.service-card--muted { border-left-color: var(--color-border-medium); }
 
 /* ================= UTILS & RESPONSIVE ================= */
 .text-green { color: var(--color-ok); font-weight: 600;}
 .text-red { color: var(--color-error); font-weight: 600;}
+.text-muted { color: var(--text-secondary); font-weight: 600;}
 
 @media (max-width: 1024px) {
   .main-content { padding: 2rem; }
