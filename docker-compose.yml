@@ -6,3 +6,6 @@ services:
       - .:/code
     ports:
       - "${PORT}:${PORT}"
+    environment:
+      MS_AUTH_URL: ${MS_AUTH_URL:-https://microservicio-autenticacion-lo4w.onrender.com}
+      INTERNAL_SECRET_TOKEN: ${INTERNAL_SECRET_TOKEN:-}
