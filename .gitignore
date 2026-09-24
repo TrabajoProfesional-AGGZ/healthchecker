@@ -14,6 +14,7 @@ Gemfile.lock
 vendor/
 
 .venv/
+venv/
 
 .claude
 CLAUDE.md
