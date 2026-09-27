@@ -35,7 +35,7 @@ NODOS_COMPARTIDOS = [
     {"name": "MS Auth", "url": f"{MS_AUTH_URL}/api/v1/auth/health", "type": "Microservicio"},
     {"name": "MS Analiticas", "url": "https://microservicio-analiticas-ngys.onrender.com/api/v1/metricas/health", "type": "Microservicio"},
     {"name": "MS Pagos", "url": "https://microservicio-pagos-0cc3.onrender.com/api/v1/pagos/health", "type": "Microservicio"},
-    {"name": "MS Bot", "url": "https://microservicio-bot-conversacional.onrender.com/health", "type": "Microservicio"},
+    {"name": "MS Bot", "url": "https://microservicio-bot-conversacional-4sby.onrender.com/health", "type": "Microservicio"},
     {"name": "MS Acceso", "url": "https://microservicio-acceso-ko73.onrender.com/api/v1/accesos/health", "type": "Microservicio"},
 ]
 
